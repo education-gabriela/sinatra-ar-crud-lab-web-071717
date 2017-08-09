@@ -1,0 +1,19 @@
+<h1>All Posts</h1>
+<ul>
+  <% @all_posts.each do |post| %>
+      <li>
+        <b><%= post.name %></b> | <a href="/posts/<%= post.id %>" title="Show">Show</a> |
+        <a href="/posts/<%= post.id %>/edit" title="Edit">Edit</a> |
+        <form action="/posts/<%= post.id %>" method="post">
+          <input type="hidden" value="delete" name="_method">
+          <input type="submit" value="Delete" class="delete" style="display: inline-block !important">
+        </form>
+        <br>
+        <%= post.content %>
+      </li>
+  <% end %>
+</ul>
+
+<br>
+
+<a href="/posts/new">New Post</a>
