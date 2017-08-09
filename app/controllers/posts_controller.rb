@@ -25,9 +25,6 @@ class PostsController < ApplicationController
 
   patch "/posts/:id" do
     @post = Post.find(params[:id])
-    # @post.name = params[:name]
-    # @post.content = params[:content]
-    # binding.pry
     @post.update(name: params[:name], content: params[:content])
 
     redirect "/posts/#{@post.id}"
